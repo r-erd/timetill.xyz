@@ -23,14 +23,14 @@ And I wanted it without ads. I added the visualization because I wanted to learn
 </p>
 
 ### Compiles and hot-reloads for development
-```
-npm run serve
-```
+
+- use `nvm` to install node 16 with `nvm install 16`
+- `nvm use 16`
+- `npm install`
+- `npm run serve`
 
 ### Compiles and minifies for production
 ```
-npm run build
+npm run build --production
 ```
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
