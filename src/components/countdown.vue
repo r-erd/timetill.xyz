@@ -1,9 +1,5 @@
 <template>
-  <div v-if="this.unsupportedBrowser">
-    <h3>Sorry, Safari doesn't support required features :(</h3>
-  </div>
-
-  <div v-if="!this.unsupportedBrowser">
+  <div>
     <div
       v-if="!result"
       style="
@@ -299,6 +295,7 @@
   </div>
 </template>
 
+
 <script>
 export default {
   name: "HelloWorld",
@@ -308,12 +305,7 @@ export default {
 
   created() {},
   mounted() {
-    if (
-      navigator.userAgent.indexOf("Safari") != -1 &&
-      navigator.userAgent.indexOf("Chrome") == -1
-    ) {
-      this.unsupportedBrowser = true;
-    }
+
     this.canvas = this.$refs.canvas.getContext("2d");
     if (
       this.$cookie.isCookieAvailable("countdown-date") &&
@@ -338,7 +330,7 @@ export default {
       sec: undefined,
       result: false,
       error: false,
-      unsupportedBrowser: false,
+
       visual: false,
       notVisualizable: false,
       side: 10,
@@ -436,7 +428,7 @@ export default {
       var tzoffset = (new Date()).getTimezoneOffset() * 60000;
       var localISOTime = (new Date(today.getTime()- tzoffset)).toISOString().slice(0, -1)
 
-      this.inputDate = new Date(localISOTime.substring(0,10) + " " + localISOTime.substring(11,19));
+      this.inputDate = new Date(localISOTime.substring(0,10) + "T" + localISOTime.substring(11,19));
       this.displayCountdown();
       this.drawCanvas();
     },
@@ -450,7 +442,7 @@ export default {
         timestring = "00:00";
       }
 
-      this.inputDate = new Date(datestring + " " + timestring);
+      this.inputDate = new Date(datestring + "T" + timestring);
       this.displayCountdown();
       this.drawCanvas();
     },
