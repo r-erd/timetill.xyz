@@ -13,13 +13,13 @@ I wrote this because I want to have an equivalent to crossing boxes on the calen
 And I wanted it without ads. I added the visualization because I wanted to learn about the use of canvas anyways.
 
 <p float="left">
-  <img src="timetill2.png" width="400" />
-  <img src="timetill1.png" width="400" /> 
+  <img src="res/timetill2.png" width="400" />
+  <img src="res/timetill1.png" width="400" /> 
 </p>
 
 <p float="left">
-  <img src="timetill3.png" width="400" />
-  <img src="timetill4.png" width="400" /> 
+  <img src="res/timetill3.png" width="400" />
+  <img src="res/timetill4.png" width="400" /> 
 </p>
 
 ### Compiles and hot-reloads for development
