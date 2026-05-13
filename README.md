@@ -24,13 +24,14 @@ And I wanted it without ads. I added the visualization because I wanted to learn
 
 ### Compiles and hot-reloads for development
 
-- use `nvm` to install node 16 with `nvm install 16`
-- `nvm use 16`
 - `npm install`
-- `npm run serve`
+- `npm run dev`
 
 ### Compiles and minifies for production
 ```
-npm run build --production
+npm run build
 ```
+
+## Legal & Privacy
+See [COMPLIANCE.md](COMPLIANCE.md) for dependency licenses, privacy policy template, and German Impressum requirements.
 

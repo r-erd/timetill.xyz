@@ -283,6 +283,7 @@
             text-align: center;
             vertical-align: bottom;
             margin-top: 2vh;
+            margin-bottom: 4px;
             width: 100%;
             color: grey;
             text-decoration: none;
@@ -291,6 +292,21 @@
           made by Robin Erd
         </p>
       </a>
+      <p
+        style="
+          font-family: sans-serif;
+          font-size: 7pt;
+          text-align: center;
+          color: grey;
+          margin: 0;
+        "
+      >
+        <a
+          href="./privacy.html"
+          style="text-decoration: none; color: grey"
+          >Privacy</a
+        >
+      </p>
     </footer>
   </div>
 </template>
@@ -308,13 +324,13 @@ export default {
 
     this.canvas = this.$refs.canvas.getContext("2d");
     if (
-      this.$cookie.isCookieAvailable("countdown-date") &&
-      this.$cookie.isCookieAvailable("countdown-unit")
+      localStorage.getItem("countdown-date") !== null &&
+      localStorage.getItem("countdown-unit") !== null
     ) {
       this.result = true;
       this.visual = true;
-      this.unit = this.$cookie.getCookie("countdown-unit");
-      this.inputDate = new Date(this.$cookie.getCookie("countdown-date"));
+      this.unit = localStorage.getItem("countdown-unit");
+      this.inputDate = new Date(localStorage.getItem("countdown-date"));
       this.drawCanvas();
       this.displayCountdown();
     }
@@ -397,8 +413,8 @@ export default {
       this.error = false;
       this.result = true;
       this.digitTimer = setInterval(this.refresh, 50);
-      this.$cookie.setCookie("countdown-date", this.inputDate);
-      this.$cookie.setCookie("countdown-unit", this.unit);
+      localStorage.setItem("countdown-date", this.inputDate.toISOString());
+      localStorage.setItem("countdown-unit", this.unit);
     },
     cancel() {
       this.result = false;
@@ -411,7 +427,8 @@ export default {
       );
       clearInterval(this.digitTimer);
       clearInterval(this.canvasTimer);
-      this.$cookie.removeCookie("countdown-date");
+      localStorage.removeItem("countdown-date");
+      localStorage.removeItem("countdown-unit");
     },
     startTimer(hr, min, sec) {
       let today = new Date()
